@@ -1,0 +1,44 @@
+{
+	"sources" : [
+		{ "url": "git://git.yoctoproject.org/poky",
+          "branch": "gatesgarth",
+          "dir": "poky"},
+		{ "url": "git://git.openembedded.org/meta-openembedded", 
+          "branch": "gatesgarth",
+          "dir": "meta-openembedded"},
+        { "url": "https://github.com/Xilinx/meta-xilinx.git", 
+			"branch": "gatesgarth", 
+			"dir": "meta-xilinx" },
+		{ "url": "https://github.com/Xilinx/meta-xilinx-tools.git", 
+          "branch": "gatesgarth",
+          "dir": "meta-xilinx-tools"},
+		{ "url": "git@github.com:Wszydlo/meta-zedboard.git", 
+          "branch": "gatesgarth",
+          "dir": "meta-zedboard"}
+	],
+
+	"layers" : [
+		"poky/meta",
+		"poky/meta-poky",
+		"poky/meta-yocto-bsp",
+		"meta-openembedded/meta-oe",
+        "meta-openembedded/meta-networking",
+		"meta-openembedded/meta-python",
+		"meta-openembedded/meta-perl",
+        "meta-xilinx/meta-xilinx-bsp",
+        "meta-xilinx/meta-xilinx-standalone",
+        "meta-xilinx/meta-xilinx-contrib",
+		"meta-zedboard"
+	],
+
+	"builds" : {
+		"zynq7": {
+			"target" : "core-image-minimal",
+			"local.conf": [
+				"MACHINE = 'zedboard-zynq7' ",
+				"PACKAGE_CLASSES = 'package_ipk'",
+				"IMAGE_FEATURES += ' debug-tweaks package-management '"
+			]
+		}
+	}
+}

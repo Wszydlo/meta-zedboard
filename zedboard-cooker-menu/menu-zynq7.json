@@ -37,7 +37,8 @@
 			"local.conf": [
 				"MACHINE = 'zedboard-zynq7' ",
 				"PACKAGE_CLASSES = 'package_ipk'",
-				"IMAGE_FEATURES += ' debug-tweaks package-management '"
+				"IMAGE_FEATURES += ' debug-tweaks package-management '",
+                "SPL_BINARY = 'spl/boot.bin'"
 			]
 		}
 	}

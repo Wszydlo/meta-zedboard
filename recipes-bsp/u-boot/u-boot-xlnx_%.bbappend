@@ -1,3 +1,6 @@
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+SRC_URI += "file://xilinx_zynq_virt_defconfig;subdir=git/configs"
+
 do_copy_artifacts(){
 	mkdir -p ${ZEDBOARD_DEPLOY_DIR}
     cp ${DEPLOY_DIR_IMAGE}/boot.scr ${ZEDBOARD_DEPLOY_DIR}

@@ -11,3 +11,4 @@ python do_clean_prepend(){
     oe.path.remove(oe.path.join(zedboard_dir, zedboard_rootfs_name))
 }
 addtask copy_artifacts after do_image_complete before do_build
+do_copy_artifacts[nostamp] = "1"

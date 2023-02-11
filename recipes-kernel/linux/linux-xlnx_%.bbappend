@@ -10,3 +10,4 @@ python do_clean_prepend(){
     oe.path.remove(oe.path.join(zedboard_dir, "zynq-zed.dtb"))
 }
 addtask copy_artifacts after do_deploy before do_build
+do_copy_artifacts[nostamp] = "1"

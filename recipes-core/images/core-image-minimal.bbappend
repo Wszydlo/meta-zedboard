@@ -1,3 +1,11 @@
+IMAGE_INSTALL += "\
+	mtd-utils \
+	mtd-utils-ubifs \
+	libconfig \
+	swupdate \
+	${@bb.utils.contains('SWUPDATE_INIT', 'tiny', 'virtual/initscripts-swupdate', 'initscripts sysvinit', d)} \
+	util-linux-sfdisk \
+"
 do_copy_artifacts(){
 	mkdir -p ${ZEDBOARD_DEPLOY_DIR}
 	cp ${DEPLOY_DIR_IMAGE}/${PN}-${MACHINE}.cpio.gz.u-boot ${ZEDBOARD_DEPLOY_DIR}/uramdisk.image.gz

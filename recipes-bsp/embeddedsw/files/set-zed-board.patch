@@ -1,0 +1,13 @@
+diff --git a/lib/sw_apps/zynq_fsbl/src/Makefile b/lib/sw_apps/zynq_fsbl/src/Makefile
+index afc6b80a83..27cd5ceefa 100644
+--- a/lib/sw_apps/zynq_fsbl/src/Makefile
++++ b/lib/sw_apps/zynq_fsbl/src/Makefile
+@@ -10,7 +10,7 @@ CFLAGS :=
+ ECFLAGS := 
+ LDFLAGS := 
+ 
+-BOARD	:= zc702
++BOARD	:= zed
+ BSP_DIR	:= ../misc
+ DEPS	:= depends
+

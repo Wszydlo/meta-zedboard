@@ -1,1 +1,1 @@
-PROVIDES += "virtual/dtb"
+

@@ -27,7 +27,9 @@
 		"meta-openembedded/meta-perl",
         "meta-xilinx/meta-xilinx-bsp",
         "meta-xilinx/meta-xilinx-standalone",
-        "meta-xilinx/meta-xilinx-contrib",
+        "meta-xilinx/meta-xilinx-vendor",
+        "meta-xilinx/meta-xilinx-core",
+	"meta-xilinx-tools",
 		"meta-zedboard"
 	],
 

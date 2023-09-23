@@ -1,5 +1,5 @@
 my_image:
 {
 	[bootloader] fsbl.elf
-	u-boot.elf
+	[load=0x04000000,startup=0x04000000] u-boot-signed.bin
 }

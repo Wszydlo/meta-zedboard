@@ -1,5 +1,7 @@
 my_image:
 {
-	[bootloader] fsbl.elf
-	[load=0x04000000,startup=0x04000000] u-boot-signed.bin
+  [aeskeyfile] encryption_efuse.nky
+  [keysrc_encryption] efuse
+	[bootloader, encryption=aes] fsbl.elf
+	[load=0x04000000, startup=0x04000000, encryption=aes] u-boot-signed.bin
 }

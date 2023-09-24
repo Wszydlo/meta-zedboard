@@ -1,0 +1,25 @@
+diff --git a/include/configs/zynq-common.h b/include/configs/zynq-common.h
+index 4de2f94b04..45c29559b3 100644
+--- a/include/configs/zynq-common.h
++++ b/include/configs/zynq-common.h
+@@ -188,6 +188,10 @@
+ #include <config_distro_bootcmd.h>
+ #endif /* CONFIG_SPL_BUILD */
+ 
++/* Override default bootcmd */
++#undef CONFIG_BOOTCOMMAND
++#define CONFIG_BOOTCOMMAND "run mmcboot"
++
+ /* Default environment */
+ #ifndef CONFIG_EXTRA_ENV_SETTINGS
+ #define CONFIG_EXTRA_ENV_SETTINGS	\
+@@ -198,6 +203,9 @@
+ 	"kernel_addr_r=0x2000000\0"     \
+ 	"scriptaddr=0x3000000\0"        \
+ 	"ramdisk_addr_r=0x3100000\0"    \
++	"loadaddr=0x2000000\0" \
++	"bootargs=root=/dev/mmcblk0p2 rw rootwait earlyprintk \0" \
++	"mmcboot=fatload mmc 0:1 ${loadaddr} fitImage.bin; bootm ${loadaddr} \0" \
+ 	BOOTENV
+ #endif
+ 

@@ -1,3 +1,6 @@
+SRC_URI += " file://001-change-flashlayout.patch "
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+
 do_compile:append(){
 	cp ${DEPLOY_DIR_IMAGE}/u-boot-unsigned.dtb ${STAGING_DATADIR}/u-boot.dtb
 	cp ${DEPLOY_DIR_IMAGE}/u-boot-unsigned.dtb ${B}/u-boot-${MACHINE}.dtb

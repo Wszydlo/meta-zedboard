@@ -1,0 +1,19 @@
+diff --git a/arch/arm/boot/dts/zynq-zed.dts b/arch/arm/boot/dts/zynq-zed.dts
+index 2d531a6ea2ca..13652c5c702e 100644
+--- a/arch/arm/boot/dts/zynq-zed.dts
++++ b/arch/arm/boot/dts/zynq-zed.dts
+@@ -67,11 +67,11 @@ flash@0 {
+ 		#size-cells = <1>;
+ 		partition@0 {
+ 			label = "qspi-fsbl-uboot";
+-			reg = <0x0 0x100000>;
++			reg = <0x0 0x400000>;
+ 		};
+-		partition@100000 {
++		partition@400000 {
+ 			label = "qspi-linux";
+-			reg = <0x100000 0x500000>;
++			reg = <0x400000 0x500000>;
+ 		};
+ 		partition@600000 {
+ 			label = "qspi-device-tree";

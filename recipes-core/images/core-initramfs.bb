@@ -5,7 +5,14 @@ INITRAMFS_SCRIPTS ?= " \
   initramfs-module-verity \
   "
 
-PACKAGE_INSTALL = "${INITRAMFS_SCRIPTS} ${VIRTUAL-RUNTIME_base-utils} udev base-passwd ${ROOTFS_BOOTSTRAP_INSTALL}"
+PACKAGE_INSTALL = " \
+  ${INITRAMFS_SCRIPTS} \
+  ${VIRTUAL-RUNTIME_base-utils} \
+  udev \
+  base-passwd \
+  openssl cryptsetup openssl-bin \
+  ${ROOTFS_BOOTSTRAP_INSTALL} \
+  "
 
 IMAGE_FEATURES = ""
 

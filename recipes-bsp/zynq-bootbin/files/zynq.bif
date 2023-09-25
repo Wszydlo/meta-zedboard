@@ -3,5 +3,6 @@ my_image:
   [aeskeyfile] encryption_efuse.nky
   [keysrc_encryption] efuse
 	[bootloader, encryption=aes] fsbl.elf
+	[encryption=aes] download.bit
 	[load=0x04000000, startup=0x04000000, encryption=aes] u-boot-signed.bin
 }

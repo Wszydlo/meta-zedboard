@@ -1,10 +1,11 @@
 LICENSE = "CLOSED"
 
-DEPENDS += "bootgen-native virtual/bootloader virtual/fsbl"
+DEPENDS += "bootgen-native virtual/bootloader virtual/fsbl virtual/bitstream"
 SRC_URI = " \
   file://zynq.bif \
   file://encryption_efuse.nky \
   "
+
 PROVIDES += "virtual/boot-bin"
 inherit deploy
 do_deploy[dirs] += "${ZED_DEPLOY_DIR} ${S}"
@@ -13,6 +14,7 @@ do_deploy(){
 	# Copy necessary files
   cp ${WORKDIR}/encryption_efuse.nky ${S}
 	cp ${DEPLOY_DIR_IMAGE}/u-boot-signed.bin ${S}
+	cp ${DEPLOY_DIR_IMAGE}/download-${MACHINE}.bit ${S}/download.bit
 	cp ${DEPLOY_DIR_IMAGE}/fsbl-${MACHINE}.elf ${S}/fsbl.elf
 	
 	#Create boot image

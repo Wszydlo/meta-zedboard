@@ -1,4 +1,8 @@
-SRC_URI += " file://001-change-flashlayout.patch "
+SRC_URI += " \
+  file://001-change-flashlayout.patch \
+  file://01-enable-dm-verity.cfg \
+  file://02-enable-sha256.cfg \
+  "
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 do_compile:append(){

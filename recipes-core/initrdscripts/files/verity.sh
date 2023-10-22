@@ -17,8 +17,12 @@ verify_sig(){
 }
 
 mount_verity_root(){
-  veritysetup open /dev/mmcblk0p2 vroot /dev/mmcblk0p2 --hash-offset $DATA_SIZE $ROOT_HASH
+  veritysetup --data-block-size=1024 --hash-offset=$DATA_SIZE create vroot /dev/mmcblk0p2 /dev/mmcblk0p2 $ROOT_HASH
+  mkdir -p /new_root
+  mount -o ro /dev/mapper/vroot /new_root
+  exec switch_root /new_root /sbin/init
 }
+
 verity_run(){
   #TODO: Remove shell entry after initscript is completed  
   /bin/sh

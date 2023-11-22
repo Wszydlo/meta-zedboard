@@ -1,46 +1,59 @@
 {
-	"sources" : [
-		{ "url": "git://git.yoctoproject.org/poky",
-          "branch": "kirkstone-4.0.11",
-          "dir": "poky"},
-		{ "url": "git://git.openembedded.org/meta-openembedded", 
-          "branch": "kirkstone-4.0.11",
-          "dir": "meta-openembedded"},
-        { "url": "https://github.com/Xilinx/meta-xilinx.git", 
-			"branch": "kirkstone", 
-			"dir": "meta-xilinx" },
-		{ "url": "https://github.com/Xilinx/meta-xilinx-tools.git", 
-          "branch": "kirkstone",
-          "dir": "meta-xilinx-tools"},
-		{ "url": "git@github.com:Wszydlo/meta-zedboard.git", 
-          "branch": "kirkstone",
-          "dir": "meta-zedboard"}
-	],
+  "sources" : [
+    { "url": "git://git.yoctoproject.org/poky",
+      "rev": "kirkstone-4.0.11",
+      "dir": "poky"},
+    { "url": "git://git.openembedded.org/meta-openembedded", 
+      "branch": "kirkstone",
+      "dir": "meta-openembedded",
+      "rev": "594c9cf6d3205c8e40ff772383fd9ab7dd3ed2cc" },
+    { "url": "https://github.com/Xilinx/meta-xilinx.git", 
+      "branch": "kirkstone-next", 
+      "dir": "meta-xilinx",
+      "rev": "06e35a434daf4427e4a3c3bb1144e1c8120cba2a" },
+    { "url": "https://github.com/Xilinx/meta-xilinx-tools.git", 
+      "branch": "kirkstone-next",
+      "dir": "meta-xilinx-tools",
+      "rev": "8d8f1ff6e42174946fe786f4cf6775ce8a0d5ad0" },
+    { "url": "git://git.yoctoproject.org/meta-security",
+      "branch": "kirkstone",
+      "dir": "meta-security",
+      "rev": "06c240c3c235fa06fe724e278d53463ac67cc26b" },
+    { "url": "git@github.com:Wszydlo/meta-zedboard.git", 
+      "branch": "kirkstone",
+      "dir": "meta-zedboard"}
+  ],
 
-	"layers" : [
-		"poky/meta",
-		"poky/meta-poky",
-		"poky/meta-yocto-bsp",
-		"meta-openembedded/meta-oe",
-        "meta-openembedded/meta-networking",
-		"meta-openembedded/meta-python",
-		"meta-openembedded/meta-perl",
-        "meta-xilinx/meta-xilinx-bsp",
-        "meta-xilinx/meta-xilinx-standalone",
-        "meta-xilinx/meta-xilinx-vendor",
-        "meta-xilinx/meta-xilinx-core",
-	"meta-xilinx-tools",
-		"meta-zedboard"
-	],
+  "layers" : [
+    "poky/meta",
+    "poky/meta-poky",
+    "poky/meta-yocto-bsp",
+    "meta-openembedded/meta-oe",
+    "meta-openembedded/meta-networking",
+    "meta-openembedded/meta-python",
+    "meta-openembedded/meta-perl",
+    "meta-xilinx/meta-xilinx-bsp",
+    "meta-xilinx/meta-xilinx-standalone",
+    "meta-xilinx/meta-xilinx-vendor",
+    "meta-xilinx/meta-xilinx-core",
+    "meta-xilinx-tools",
+    "meta-security",
+    "meta-zedboard"
+  ],
 
-	"builds" : {
-		"zynq7": {
-			"target" : "core-image-minimal",
-			"local.conf": [
-				"MACHINE = 'ws-zed' ",
-				"PACKAGE_CLASSES = 'package_ipk'",
-				"IMAGE_FEATURES += ' debug-tweaks package-management '"
-			]
-		}
-	}
+  "builds" : {
+    "zynq7": {
+      "target" : [
+        "virtual/bootloader",
+        "virtual/kernel",
+        "virtual/boot-bin",
+        "core-initramfs",
+        "verity-sign"
+        ],
+      "local.conf": [
+        "MACHINE = 'ws-zed' ",
+        "IMAGE_FEATURES += ' debug-tweaks '"
+      ]
+    }
+  }
 }
